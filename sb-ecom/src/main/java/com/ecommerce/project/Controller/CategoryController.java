@@ -34,14 +34,14 @@ public class CategoryController {
         return new ResponseEntity<>(savedCategoryDTO,HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/api/admin/categories/{categoryId}")
+    @DeleteMapping("/admin/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> deleteCategory(@PathVariable Long categoryId){
         CategoryDTO deletedCategory=categoryService.deleteCategory(categoryId);
         return new ResponseEntity<>(deletedCategory,HttpStatus.OK);
     }
 
 
-    @PutMapping("/api/public/categories/{categoryId}")
+    @PutMapping("/public/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> createCategory(@Valid @RequestBody CategoryDTO categoryDTO,
                                                       @PathVariable Long categoryId){
       CategoryDTO savedCategoryDTO=categoryService.updateCategory(categoryDTO,categoryId);

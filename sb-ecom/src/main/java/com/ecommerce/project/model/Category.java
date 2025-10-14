@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.processing.Generated;
+import java.util.List;
 
 @Entity(name="categories")
 @Data
@@ -22,4 +23,7 @@ public class Category {
     @NotBlank
     @Size(min = 5 , message = "Category Name must contain atleast 5 characters")
     private String categoryName;
+
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    private List<Product> products;
 }
